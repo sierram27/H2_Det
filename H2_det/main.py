@@ -11,7 +11,22 @@ from sdtoolbox.znd import zndsolve
 # Initial Conditions
 # ------------------
 
-T1 = 600.0          # K
+# Change script to allow for multiple scenarios to be evaluated
+T = [0] * 10
+for i in range(0,9):
+    T[i] = 300.0 + 50.0 * i
+    print(T[i])
+    
+P = [0] * 10
+for i in range(0,9):
+    if i==0:
+        P[i] = ct.one_atm
+    else:
+        P[i] = 100000.0 + 50000.0*i
+    print(P[i] )
+
+# Static initial conditions
+T1 = 300.0          # K
 P1 = ct.one_atm     # Pa
 phi = 0.5
 
