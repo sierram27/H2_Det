@@ -34,7 +34,7 @@ def mixture(ppm):
     """
     x = ppm * 1e-6
     n_o3 = x * 8.0 / (1.0 - x)
-    return f"H2:2 O2:1 AR:7 O3:{n_o3:.8f}"
+    return f"H2:1 O2:1 AR:7 O3:{n_o3:.8f}"
 
 
 # ---------------------
