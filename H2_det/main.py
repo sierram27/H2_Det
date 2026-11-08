@@ -24,10 +24,10 @@ for i in range(0,n):
     else:
         P_array[i] = 100000.0 + 50000.0*i
 
-mech = "ffcm2_h2.yaml" #sets mech to the mechanism gri30.yaml
+mech = "ffcm1_h2_o3_12sp_princeton.yaml" #sets mech to the mechanism gri30.yaml
 
 # Lean H2-air at phi = 0.5
-q = 'H2:1 O2:1 N2:3.76'
+q = 'O2:1, N2:3.76, O3:0.00476476'
 
 # ---------------------
 # ---------------------
@@ -255,11 +255,11 @@ plt.figure()
 for i,p in enumerate(P_array):
     plt.plot(
         T_array,
-        results[:,i,6]/1000, 
+        results[:,i,6]*1000, 
         label=f"{p}"
     )
 plt.xlabel("Temperature [K]")
-plt.ylabel("ZND Exothermic Length [mm]")
+plt.ylabel("ZND Exothermic Length [m]")
 plt.title("ZND Exothermic Length vs. Initial Temperature")
 plt.legend(bbox_to_anchor=(1.04,1), loc="upper left")
 
@@ -268,11 +268,11 @@ plt.figure()
 for i,t in enumerate(T_array):
     plt.plot(
         P_array,
-        results[i,:,6]/1000, 
+        results[i,:,6]*1000, 
         label=f"{t}"
     )
 plt.xlabel("Pressure (Pa)")
-plt.ylabel("ZND Exothermic Length [mm]")
+plt.ylabel("ZND Exothermic Length [m]")
 plt.title("ZND Exothermic Length vs. Initial Pressure")
 plt.legend(bbox_to_anchor=(1.04,1), loc="upper left")
 plt.show()
