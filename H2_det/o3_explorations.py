@@ -30,7 +30,7 @@ t_end = 5.0e-5
 # Mixtures without O3: label -> mole numbers
 mixtures = {
     r"H$_2$-air, $\phi$ = 0.5":    {"H2": 1.0, "O2": 1.0, "N2": 3.76},
-    r"2H$_2$ + O$_2$ + 7Ar":       {"H2": 2.0, "O2": 1.0, "AR": 7.0},
+    r"2H$_2$ + O$_2$ + 7Ar":       {"H2": 1.0, "O2": 1.0, "AR": 7.0},
 }
 
 # Short names used in the CSV file names
@@ -157,7 +157,7 @@ for col, scale, ylabel, title, fname, is_length in plots:
     fig_path = os.path.join(out_dir, f"{fname}_vs_O3")
     plt.savefig(fig_path + ".png", dpi=200)
 
-plt.show()
+#plt.show()
 
 #Plot lengths on a not log scale to compare
 LOG_Y_LENGTHS = False
@@ -193,4 +193,4 @@ for k, ppm in enumerate(o3_ppm):
     plt.legend()
     plt.tight_layout()
     plt.savefig(f'O3_all_species_{ppm}ppm.png', dpi=200)
-plt.show()
+#plt.show()
